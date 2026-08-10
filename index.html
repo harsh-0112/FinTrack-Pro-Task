@@ -1766,27 +1766,22 @@
       darkSwitch.addEventListener("click", () => {
         if (loginedUser.colorMode == "light") {
           loginedUser.colorMode = "dark";
-          localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
-
-          let loginCredentials = JSON.parse(
-            localStorage.getItem("loginCredentials"),
-          );
-
-          const idx = loginCredentials.findIndex((elem) => {
-            return elem.username == loginedUser.username;
-          });
-
-          loginCredentials[idx] = loginedUser;
-
-          localStorage.setItem(
-            "loginCredentials",
-            JSON.stringify(loginCredentials),
-          );
         } else loginedUser.colorMode = "light";
 
-        console.log(loginedUser);
+        let loginCredentials = JSON.parse(
+          localStorage.getItem("loginCredentials"),
+        );
+        const idx = loginCredentials.findIndex((elem) => {
+          return elem.username == loginedUser.username;
+        });
+
+        loginCredentials[idx] = loginedUser;
 
         localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+        localStorage.setItem(
+          "loginCredentials",
+          JSON.stringify(loginCredentials),
+        );
         dashboardUI();
       });
     </script>
