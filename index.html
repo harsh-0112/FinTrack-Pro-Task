@@ -1,0 +1,1794 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+
+        transition: all 0.3s ease;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(235, 247, 245, 0.088);
+      }
+
+      .login-body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(235, 247, 245, 0.088);
+      }
+      .login-div {
+        background-color: white;
+        height: 400px;
+        width: 420px;
+        border-radius: 20px;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.26);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px;
+        align-items: center;
+      }
+
+      .register-div {
+        background-color: white;
+        height: 400px;
+        width: 420px;
+        border-radius: 20px;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.26);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px;
+        align-items: center;
+      }
+
+      .register-div .fields button {
+        background-color: rgb(2, 172, 2);
+      }
+
+      .login-body .fields {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .login-body .fields form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .login-body label {
+        display: block;
+      }
+
+      .login-body input {
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.312);
+        width: 100%;
+        padding: 10px;
+      }
+
+      .login-body h4 {
+        font-weight: 400;
+      }
+
+      .login-body button {
+        margin-top: 10px;
+        height: 35px;
+        width: 100%;
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(2, 79, 187);
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .login-body button:hover {
+        cursor: pointer;
+      }
+
+      .login-body p {
+        font-size: 14px;
+      }
+
+      .login-body .green-btn {
+        background-color: green;
+      }
+      .login-body p .blue-text {
+        color: rgb(2, 79, 187);
+      }
+
+      .login-body p span:hover {
+        cursor: pointer;
+      }
+
+      main {
+        height: fit-content;
+        width: 100%;
+        background-color: whitesmoke;
+      }
+
+      main nav {
+        background-color: white;
+        height: 70px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.16);
+      }
+
+      main nav .right {
+        display: flex;
+        align-items: center;
+        /* background-color: red; */
+        width: 15%;
+        justify-content: space-around;
+      }
+
+      main nav .right button {
+        width: 100px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        padding: 0px 12px;
+      }
+
+      main nav .right button i {
+        font-size: 20px;
+        color: #b91c1c;
+      }
+
+      main nav .line {
+        background-color: black;
+        height: 20px;
+        width: 1px;
+      }
+
+      aside {
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 15px 10px;
+        background-color: white;
+        height: 100%;
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        justify-content: space-between;
+        border: 1px solid rgba(0, 0, 0, 0.134);
+      }
+      aside .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      aside .logo i {
+        font-size: 30px;
+      }
+
+      aside .logo .txt {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      aside .logo .txt h3 {
+        font-size: 20px;
+      }
+      aside .logo .txt h5 {
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: grey;
+        font-size: 12px;
+      }
+
+      aside .top {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      aside .options {
+        color: gray;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      aside .options div {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        align-items: center;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      aside .options div:hover {
+        cursor: pointer;
+        background-color: #dee9fc;
+        color: #253da8;
+      }
+
+      .selected-btn {
+        background-color: #dee9fc;
+        color: #253da8;
+      }
+
+      aside .options div i {
+        font-size: 20px;
+      }
+      aside .options div p {
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      aside .options .settings {
+        display: flex;
+      }
+
+      aside .add-transaction {
+        color: white;
+        background-color: black;
+        width: 85%;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      aside .add-transaction p {
+        font-size: 14px;
+      }
+
+      main .main-cont {
+        padding: 30px;
+        margin-left: 15%;
+        height: 93%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      main .main-cont h4 {
+        font-weight: 400;
+        font-size: 14px;
+        color: gray;
+      }
+
+      main .main-cont .cards {
+        /* background-color: yellow; */
+        height: 150px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      main .main-cont .cards .card {
+        background-color: white;
+        width: 22%;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.189);
+      }
+
+      main .main-cont .cards .card .logo {
+        color: #253da8;
+        font-size: 20px;
+        position: relative;
+        background-color: rebeccapurple;
+        display: inline-block;
+      }
+
+      main .main-cont .cards .card .logo i {
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #dee9fc;
+        position: absolute;
+        height: 42px;
+      }
+
+      main .main-cont .cards .income .logo i {
+        background-color: #dcfce7;
+        overflow: hidden;
+      }
+
+      main .main-cont .cards .expense .logo i {
+        background-color: #fae5e3;
+        overflow: hidden;
+      }
+
+      main .main-cont .cards .income .logo i img {
+        filter: drop-shadow(100px 0 0 #306339);
+        transform: translate(-500%);
+      }
+
+      main .main-cont .cards .expense .logo i img {
+        filter: drop-shadow(100px 0 0 #8c2722);
+        transform: translate(-500%);
+      }
+
+      main .main-cont .cards .income .txt h2 {
+        color: #306339;
+      }
+
+      main .main-cont .cards .expense .txt h2 {
+        color: #8c2722;
+      }
+
+      main .main-cont .graph {
+        background-color: white;
+        height: 500px;
+        justify-content: space-between;
+        width: 65%;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.183);
+        display: flex;
+        flex-direction: column;
+      }
+
+      main .main-cont .graph .chart-div {
+        background-color: rgba(218, 218, 218, 0.147);
+      }
+
+      main .main-cont .graph .chart-div #myChart {
+        width: 100%;
+      }
+
+      main .main-cont .center {
+        display: flex;
+        justify-content: space-between;
+        height: 500px;
+      }
+
+      main .main-cont .center .preferences {
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.203);
+        width: 33%;
+        height: 45%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      main .main-cont .center .preferences .dark-mode {
+        display: flex;
+        align-items: center;
+        height: 30%;
+        border-bottom: 1px solid gray;
+        justify-content: space-between;
+      }
+
+      main .main-cont .center .preferences .dark-mode h3 {
+        font-size: 15px;
+      }
+
+      main .main-cont .center .preferences button {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #8c2722;
+        color: #8c2722;
+        background-color: #fae5e3;
+        font-weight: 400;
+        font-size: 14px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      /* SWITCH */
+      .switch {
+        font-size: 17px;
+        position: relative;
+        display: inline-block;
+        width: 62px;
+        height: 35px;
+      }
+
+      .switch input {
+        opacity: 1;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        background: #fff;
+        transition: 0.4s;
+        border-radius: 30px;
+        border: 1px solid #ccc;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.9em;
+        width: 1.9em;
+        border-radius: 16px;
+        left: 1.2px;
+        top: 0;
+        bottom: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px #999999;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: rgb(2, 95, 171);
+        border: 1px solid transparent;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(1.5em);
+      }
+
+      main .main-cont .transactions {
+        width: 65%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.166);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      main .main-cont .transactions .filters {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      main .main-cont .transactions .filters .search {
+        width: 28%;
+        background-color: #fafafa;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+      }
+
+      main .main-cont .transactions .filters .search i {
+        font-size: 20px;
+      }
+
+      main .main-cont .transactions .filters .search input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+
+      main .main-cont .transactions .filters .options {
+        background-color: #fafafa;
+        width: 70%;
+        height: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(172, 171, 171, 0.241);
+        outline: none;
+        padding: 0px 15px;
+      }
+
+      .table-container {
+        width: 100%;
+        max-width: 900px;
+        border-radius: 8px;
+        overflow-x: auto;
+        background-color: white;
+      }
+
+      /* Table Layout */
+      .transaction-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      /* Table Header */
+      .transaction-table th {
+        font-size: 12px;
+        font-weight: 700;
+        color: #6b7280;
+        letter-spacing: 0.05em;
+        padding: 10px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      /* Table Body Rows */
+      .transaction-table td {
+        padding: 10px;
+        font-size: 14px;
+        color: #1f2937;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      /* Remove bottom border for the last row */
+      .transaction-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Description styling */
+      .description {
+        font-weight: 600;
+        color: #111827;
+      }
+
+      /* Category Badge Pill */
+      .badge {
+        background-color: #f3f4f6;
+        color: #374151;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-block;
+      }
+
+      /* Amount Styles */
+      .amount {
+        font-weight: 600;
+      }
+
+      .amount.negative {
+        color: #991b1b; /* Dark red */
+      }
+
+      .amount.positive {
+        color: #166534; /* Dark green */
+      }
+
+      /* Action Buttons */
+      .actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+        height: 50px;
+      }
+
+      .btn-action {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 0;
+        transition: opacity 0.2s;
+        font-size: 16px;
+      }
+
+      .btn-action:hover {
+        opacity: 0.75;
+      }
+
+      .btn-action.edit {
+        color: #4e81ed; /* Blue pencil */
+      }
+
+      .btn-action.delete {
+        color: #b91c1c; /* Red trash */
+      }
+
+      /* Settings Page */
+
+      .settings-sec {
+        margin-left: 15%;
+        height: calc(100% - 70px);
+        width: 85%;
+        background-color: whitesmoke;
+        padding: 30px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .settings-sec h1 {
+        font-weight: 600;
+      }
+
+      .settings-sec h4 {
+        color: gray;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .settings-sec .profile-details {
+        background-color: white;
+        width: 60%;
+        height: 30%;
+        border-radius: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.122);
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .settings-sec .profile-details label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .settings-sec .profile-details .inp-div {
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .settings-sec .profile-details input {
+        background-color: rgba(245, 245, 245, 0.456);
+        width: 100%;
+        height: 35px;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.167);
+      }
+
+      .settings-sec .profile-details select {
+        background-color: rgba(245, 245, 245, 0.351);
+        width: 100%;
+        height: 35px;
+        border-radius: 5px;
+        padding: 0px 10px;
+        border: 1px solid rgba(0, 0, 0, 0.266);
+      }
+
+      .settings-sec .profile-details .fields {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .settings-sec .profile-details button {
+        margin-top: 40px;
+        width: 15%;
+        padding: 8px 15px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .trans-ui {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.285);
+        display: flex;
+        position: fixed;
+        top: 0;
+      }
+
+      .trans-ui .trans-box {
+        height: 55%;
+        width: 25%;
+        background-color: white;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 25px;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .trans-ui .trans-box .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .trans-ui .trans-box i {
+        cursor: pointer;
+        font-size: 20px;
+        color: gray;
+      }
+
+      .trans-ui .trans-box i:hover {
+        color: black;
+      }
+
+      .trans-box label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .trans-box input,
+      select {
+        width: 100%;
+        height: 40px;
+        padding: 0px 10px;
+        border: 1px solid rgba(128, 128, 128, 0.215);
+        border-radius: 5px;
+        background-color: #f7f8fa;
+      }
+
+      .trans-box .lab-inp {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .trans-box .mid {
+        display: flex;
+        justify-content: space-between;
+      }
+      .trans-box .mid div {
+        width: 48%;
+      }
+
+      .trans-box button {
+        height: 35px;
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .hidden-row {
+        display: none;
+      }
+
+      .light-blue {
+        background-color: #1f2a38 !important;
+      }
+
+      .dark-blue {
+        background-color: #101826 !important;
+      }
+
+      .white-txt {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Login Body -->
+    <div class="login-body">
+      <div class="login-div">
+        <h2>Welcome Back</h2>
+        <h4>Login to FinTrack Pro</h4>
+        <div class="fields">
+          <form id="login-form">
+            <label for="username">Username</label>
+            <input name="username" type="text" id="username" />
+            <label for="username">Password</label>
+            <input name="password" type="password" id="password" />
+            <button>Login</button>
+          </form>
+        </div>
+        <p class="register-here">
+          Don't have an account?
+          <span class="blue-text">Register here</span>
+        </p>
+      </div>
+
+      <div class="register-div">
+        <h2>Create Account</h2>
+        <h4>Join FinTrack Pro</h4>
+        <div class="fields">
+          <form id="register-form">
+            <label for="username">Choose a Username</label>
+            <input name="username" type="text" id="username" />
+            <label for="username">Password</label>
+            <input name="password" type="password" id="password" />
+            <button>Register</button>
+          </form>
+        </div>
+        <p class="login-here">
+          Already have an account?
+          <span class="blue-text">Login here</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Home Page -->
+    <main class="home-page">
+      <!-- NAVBAR -->
+      <nav>
+        <div class="line"></div>
+        <div class="right">
+          <h4 class="user-name">Harsh</h4>
+          <button class="logout">
+            <i class="ri-logout-box-r-line"></i>
+            Logout
+          </button>
+        </div>
+      </nav>
+
+      <!-- ASIDE -->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <i class="ri-stack-fill"></i>
+            <div class="txt">
+              <h3>FinTrack Pro</h3>
+              <h5>Enterprise Finance</h5>
+            </div>
+          </div>
+          <div class="options">
+            <div class="dashboard">
+              <i class="ri-layout-grid-line"></i>
+              <p>Dashboard</p>
+            </div>
+            <div class="settings">
+              <i class="ri-settings-4-fill"></i>
+              <p>Settings</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="add-transaction">
+          <i class="ri-add-line"></i>
+          <p>Add Transaction</p>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-cont">
+        <div class="heading">
+          <h1>Financial Overview</h1>
+          <h4>Real-time tracking application</h4>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+          <div class="card balance">
+            <div class="logo"><i class="ri-bank-fill"></i></div>
+            <div class="txt">
+              <h4>Current Balance</h4>
+              <h2>$0.00</h2>
+            </div>
+          </div>
+
+          <div class="card income">
+            <div class="logo">
+              <i><img src="./growth-svgrepo-com.svg" height="20px" alt="" /></i>
+            </div>
+            <div class="txt">
+              <h4>Total Income</h4>
+
+              <h2>$0.00</h2>
+            </div>
+          </div>
+
+          <div class="card expense">
+            <div class="logo">
+              <i
+                ><img
+                  src="./trending-down-sharp-svgrepo-com.svg"
+                  height="20px"
+                  width="20px"
+                  alt=""
+              /></i>
+            </div>
+            <div class="txt">
+              <h4>Total Expense</h4>
+              <h2>$0.00</h2>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="logo">
+              <i
+                ><img
+                  src="./pig-piggy-bank-svgrepo-com.svg"
+                  height="20px"
+                  alt=""
+              /></i>
+            </div>
+            <div class="txt total">
+              <h4>Total Transactions</h4>
+              <h2>0</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center -->
+        <div class="center">
+          <!-- Chart -->
+          <div class="graph">
+            <h2>Cash Flow Analysis</h2>
+            <div class="chart-div">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <div class="preferences">
+            <h2>Preferences</h2>
+            <div class="dark-mode">
+              <h3>Dark Mode</h3>
+
+              <!-- From Uiverse.io by mrhyddenn -->
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <button>
+              <i class="ri-delete-bin-6-line"></i>
+              Reset All Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Transactions TABLE-->
+        <div class="transactions">
+          <h2>All Transactions</h2>
+          <div class="filters">
+            <div class="search">
+              <i class="ri-search-line"></i>
+              <input
+                id="searchBox"
+                type="text"
+                placeholder="Search transactions..."
+              />
+            </div>
+            <select class="options" name="options" id="type-options">
+              <option value="all" selected>All Types</option>
+              <option value="income">Income Only</option>
+              <option value="expense">Expense Only</option>
+            </select>
+          </div>
+
+          <div class="table-container">
+            <table class="transaction-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>DESCRIPTION</th>
+                  <th>CATEGORY</th>
+                  <th>AMOUNT</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Settings -->
+    <div class="settings-sec">
+      <div class="heading">
+        <h1>Settings</h1>
+        <h4>Manage your account profile and app formatting.</h4>
+      </div>
+
+      <div class="profile-details">
+        <h2>Profile Details</h2>
+        <div class="fields">
+          <div class="inp-div">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" />
+          </div>
+
+          <div class="inp-div">
+            <label for="currency">Primary Currency</label>
+            <select name="currency" id="currency">
+              <option value="USD"><p>USD ($)</p></option>
+              <option value="EUR"><p>EUR (€)</p></option>
+              <option value="GBP"><p>GBP (£)</p></option>
+              <option value="INR"><p>INR (₹)</p></option>
+              <option value="JPY"><p>JPY (¥)</p></option>
+            </select>
+          </div>
+        </div>
+
+        <button>Save Changes</button>
+      </div>
+    </div>
+
+    <!-- Transaction UI -->
+    <div class="trans-ui">
+      <form class="trans-box">
+        <div class="top">
+          <h2>Add Transaction</h2>
+          <i class="ri-close-line"></i>
+        </div>
+
+        <div class="lab-inp type">
+          <label for="type">Type</label>
+          <select required name="type" id="type">
+            <option value="Expense">Expense</option>
+            <option value="Income">Income</option>
+          </select>
+        </div>
+
+        <div class="lab-inp desc">
+          <label for="desc">Description</label>
+          <input
+            required
+            type="text"
+            id="desc"
+            placeholder="e.g. Amazon, Salary, Coffee"
+          />
+        </div>
+
+        <div class="mid">
+          <div class="lab-inp amount">
+            <label for="amount">Amount</label>
+            <input required type="text" id="amount" />
+          </div>
+
+          <div class="lab-inp date">
+            <label for="start-date">Choose a date:</label>
+            <input required type="date" id="date" name="date" />
+          </div>
+        </div>
+
+        <div class="lab-inp category">
+          <label for="category">Category</label>
+          <select required name="category" id="category">
+            <option selected disabled hidden value="">Select a category</option>
+            <option value="food-dining">Food &amp; Dining</option>
+            <option value="shopping">Shopping</option>
+            <option value="recharge-bills">Recharge &amp; Bills</option>
+            <option value="petrol-auto">Petrol &amp; Auto</option>
+            <option value="utilities">Utilities</option>
+            <option value="salary">Salary</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <button>Save Transaction</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const ctx = document.getElementById("myChart");
+      let config = {
+        type: "bar",
+        data: {
+          labels: ["Income vs Expenses"],
+          datasets: [
+            {
+              label: "Income",
+              data: [10],
+              backgroundColor: ["#306339"],
+              borderWidth: 1,
+            },
+            {
+              label: "Expenses",
+              data: [10],
+              backgroundColor: ["#8c2722"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      };
+      let myChart = new Chart(ctx, config);
+
+      const loginPage = document.querySelector(".login-body");
+      const loginDiv = document.querySelector(".login-div");
+      const registerDiv = document.querySelector(".register-div");
+      const homePage = document.querySelector("main");
+      const dashboardPage = document.querySelector("main .main-cont");
+      const settingsPage = document.querySelector(".settings-sec");
+      const loginForm = document.querySelector("#login-form");
+      const registerForm = document.querySelector("#register-form");
+      const dashboardBtn = document.querySelector("aside .dashboard");
+      const settingsBtn = document.querySelector("aside .settings");
+      const addTransaction = document.querySelector(".add-transaction");
+      const closeBtn = document.querySelector(".trans-ui i");
+      const transactionBox = document.querySelector(".trans-ui");
+      const transactionForm = document.querySelector(".trans-ui .trans-box");
+      const aside = document.querySelector("aside");
+      const transactionTable = document.querySelector(".transaction-table");
+      const typeOptions = document.querySelector(".transactions #type-options");
+      transactionBox.style.display = "none";
+      const searchBox = document.querySelector("#searchBox");
+      const settingsSaveBtn = document.querySelector(".settings-sec button");
+      const resetAllBtn = document.querySelector(".center button");
+      const darkSwitch = document.querySelector(".center .switch input");
+
+      console.log(darkSwitch);
+
+      let loginCredentials = [];
+      let loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || "";
+      let transactionList = [];
+      let update = 0;
+
+      let totalIncome = 0;
+      let totalExpense = 0;
+      // Functions
+
+      const filterTransactions = (query) => {
+        console.log("QUERY", JSON.stringify(query));
+
+        const selectedType = typeOptions.value;
+
+        const transactionList =
+          JSON.parse(
+            localStorage.getItem(`transactions_${loginedUser.username}`),
+          ) || [];
+
+        let transArrId = [];
+
+        if (selectedType == "income") {
+          transactionList.forEach((elem) => {
+            if (elem.type == "Income" && elem.desc.includes(query)) {
+              transArrId.push(elem.id);
+            }
+          });
+        } else if (selectedType == "expense") {
+          transactionList.forEach((elem) => {
+            if (elem.type == "Expense" && elem.desc.includes(query)) {
+              transArrId.push(elem.id);
+            }
+          });
+        } else {
+          transactionList.forEach((elem) => {
+            if (elem.desc.toLowerCase().trim().includes(query)) {
+              transArrId.push(elem.id);
+            }
+          });
+        }
+        console.log(transArrId);
+
+        return transArrId;
+      };
+      const dashboardUI = (choice) => {
+        dashboardPage.style.display = "flex";
+
+        settingsPage.style.display = "none";
+
+        dashboardBtn.classList.add("selected-btn");
+
+        settingsBtn.classList.remove("selected-btn");
+
+        const settingsFullname = document.querySelector(".settings-sec #name");
+        const settingsCurrency = document.querySelector(
+          ".settings-sec #currency",
+        );
+
+        settingsFullname.value = loginedUser.fullname;
+        settingsCurrency.value = loginedUser.currencyName;
+
+        loginPage.style.display = "none";
+        homePage.style.display = "block";
+        dashboardPage.style.display = "flex";
+        settingsPage.style.display = "none";
+
+        const userName = document.querySelector("main nav .user-name");
+        userName.innerHTML = loginedUser.fullname;
+
+        // LOGOUT
+        const logOut = document.querySelector("main nav .logout");
+        logOut.addEventListener("click", () => {
+          loginedUser = "";
+          localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+          lightModeFunc();
+          loginUI();
+        });
+
+        transactionList =
+          JSON.parse(
+            localStorage.getItem(`transactions_${loginedUser.username}`),
+          ) || [];
+
+        console.log("transactionList", transactionList);
+
+        const query = searchBox.value.toLowerCase().trim();
+
+        const transArrId = filterTransactions(query);
+
+        console.log("transArrId", transArrId);
+
+        const tableBody = document.querySelector(".transaction-table tbody");
+        tableBody.innerHTML = "";
+
+        totalIncome = 0;
+        totalExpense = 0;
+
+        transactionList.forEach((elem) => {
+          if (elem.type == "Expense" && transArrId.includes(elem.id)) {
+            totalExpense += parseFloat(elem.amount);
+            tableBody.innerHTML += `<tr id=${elem.id}>
+                     <td class="table-date">${elem.date}</td>
+                     <td class="description">${elem.desc}</td>
+                     <td class="table-category"><span class="badge">${elem.category}</span></td>
+                     <td class="amount negative">-${elem.amount}</td>
+                     <td class="actions">
+                       <button
+                         class="ri-pencil-fill btn-action edit"
+                         aria-label="Edit"
+                       >
+                         <i class="fa-solid fa-pen"></i>
+                       </button>
+                       <button class="btn-action delete" aria-label="Delete">
+                         <i class="ri-delete-bin-7-fill fa-solid fa-trash-can delete"></i>
+                       </button>
+                     </td>
+                   </tr>`;
+          } else if (transArrId.includes(elem.id)) {
+            totalIncome += parseFloat(elem.amount);
+            tableBody.innerHTML += `<tr id=${elem.id}>
+                     <td class="table-date">${elem.date}</td>
+                     <td class="description">${elem.desc}</td>
+                     <td class="table-category"><span class="badge">${elem.category}</span></td>
+                     <td class="amount positive">+${elem.amount}</td>
+                     <td class="actions">
+                       <button
+                         class="ri-pencil-fill btn-action edit"
+                         aria-label="Edit"
+                       >
+                         <i class="fa-solid fa-pen"></i>
+                       </button>
+                       <button class="btn-action delete" aria-label="Delete">
+                         <i class="ri-delete-bin-7-fill fa-solid fa-trash-can delete"></i>
+                       </button>
+                     </td>
+                   </tr>`;
+          }
+        });
+
+        if (myChart) myChart.destroy();
+
+        config.data.datasets[0].data = [totalIncome];
+        config.data.datasets[1].data = [totalExpense];
+
+        myChart = new Chart(ctx, config);
+
+        let currentBalance = parseFloat(totalIncome - totalExpense);
+        let totalTransactions = transArrId.length;
+
+        const currentBal = document.querySelector(".cards .balance h2");
+        const totalInc = document.querySelector(".cards .income h2");
+        const totalExp = document.querySelector(".cards .expense h2");
+        const totalTrans = document.querySelector(".cards .total h2");
+
+        const currency = loginedUser.currency;
+
+        currentBal.textContent = `${currency} ${currentBalance}`;
+        totalInc.textContent = `${currency} ${totalIncome}`;
+
+        totalExp.textContent = `${currency} ${totalExpense}`;
+
+        totalTrans.textContent = totalTransactions;
+
+        loginedUser = JSON.parse(localStorage.getItem("loginedUser"));
+        if (loginedUser.colorMode == "dark") {
+          darkModeFunc();
+          darkSwitch.checked = "true";
+        } else lightModeFunc();
+      };
+
+      searchBox.addEventListener("input", () => {
+        dashboardUI();
+      });
+
+      const loginUI = () => {
+        loginPage.style.display = "flex";
+        loginDiv.style.display = "flex";
+        registerDiv.style.display = "none";
+        homePage.style.display = "none";
+        dashboardPage.style.display = "none";
+        settingsPage.style.display = "none";
+
+        const registerHere = document.querySelector(".register-here span");
+        registerHere.addEventListener("click", () => {
+          registerUI();
+        });
+      };
+
+      const registerUI = () => {
+        loginDiv.style.display = "none";
+        registerDiv.style.display = "flex";
+        homePage.style.display = "none";
+        settingsPage.style.display = "none";
+
+        const loginHere = document.querySelector(".login-here span");
+        loginHere.addEventListener("click", () => {
+          loginUI();
+        });
+      };
+
+      const changePage = (page) => {
+        if (page == "dashboard") {
+          dashboardPage.style.display = "flex";
+          settingsPage.style.display = "none";
+          dashboardBtn.classList.add("selected-btn");
+          settingsBtn.classList.remove("selected-btn");
+          dashboardUI();
+        } else {
+          dashboardPage.style.display = "none";
+          settingsPage.style.display = "flex";
+          dashboardBtn.classList.remove("selected-btn");
+          settingsBtn.classList.add("selected-btn");
+        }
+      };
+
+      const editRow = (row) => {
+        transactionBox.style.display = "flex";
+        document.querySelector("body").style.overflow = "hidden";
+        const transHeading = document.querySelector(".trans-box h2");
+        transHeading.textContent = "Edit Transaction";
+        const id = row.getAttribute("id");
+
+        transactionList = JSON.parse(
+          localStorage.getItem(`transactions_${loginedUser.username}`),
+        );
+
+        let data = "";
+        transactionList.forEach((elem) => {
+          if (elem.id == id) {
+            data = elem;
+          }
+        });
+
+        console.log(data);
+
+        const type = document.querySelector(".trans-box #type");
+        const desc = document.querySelector(".trans-box #desc");
+        const amount = document.querySelector(".trans-box #amount");
+        const category = document.querySelector(".trans-box #category");
+        const date = document.querySelector(".trans-box #date");
+
+        type.value = data.type;
+        desc.value = data.desc;
+        amount.value = data.amount;
+        category.value = data.category;
+        date.value = data.date;
+
+        update = id;
+      };
+
+      const deleteRow = (row) => {
+        const val = confirm(
+          "Are you sure you want to delete this transaction ? ",
+        );
+
+        if (!val) return;
+        const id = row.getAttribute("id");
+        transactionList = JSON.parse(
+          localStorage.getItem(`transactions_${loginedUser.username}`),
+        );
+
+        const idx = transactionList.findIndex((elem) => {
+          return elem.id == id;
+        });
+
+        console.log("delete idx", idx);
+        console.log(transactionList);
+
+        transactionList.splice(idx, 1);
+
+        if (transactionList.length == 0) {
+          localStorage.setItem(
+            `transactions_${loginedUser.username}`,
+            JSON.stringify([]),
+          );
+        }
+        localStorage.setItem(
+          `transactions_${loginedUser.username}`,
+          JSON.stringify(transactionList),
+        );
+
+        dashboardUI();
+      };
+
+      const darkModeFunc = () => {
+        const lightDivs = document.querySelectorAll(
+          "nav, aside, .cards .card, .graph, main .transactions, main .transactions table , .center .preferences, .settings-sec .profile-details, .trans-box, tbody",
+        );
+        const darkDivs = document.querySelectorAll(
+          "main, .settings-sec,  main .transactions .options ,  main .transactions .options,  main .transactions .search, .chart-div, .settings-sec .profile-details input, select, .trans-box input, select , .table-category span",
+        );
+        const whiteTxt = document.querySelectorAll(
+          ".logo, nav .right, nav .right button, .main-cont,main .transactions .options, .settings-sec, select, input, .trans-box, .trans-box input, select, .table-category span",
+        );
+
+        const bodyTxt = document.querySelectorAll(
+          "table .table-date, .description",
+        );
+
+        const blueBtns = document.querySelectorAll(
+          ".add-transaction, .settings-sec button, .trans-box button",
+        );
+
+        blueBtns.forEach((elem) => {
+          elem.style.backgroundColor = "#4e81ed";
+        });
+        bodyTxt.forEach((elem) => {
+          elem.style.color = "white";
+        });
+        lightDivs.forEach((elem) => {
+          elem.classList.add("light-blue");
+        });
+
+        darkDivs.forEach((elem) => {
+          elem.classList.add("dark-blue");
+        });
+
+        whiteTxt.forEach((elem) => {
+          elem.classList.add("white-txt");
+        });
+      };
+
+      const lightModeFunc = () => {
+        const lightDivs = document.querySelectorAll(
+          "nav, aside, .cards .card, .graph, main .transactions, main .transactions table , .center .preferences, .settings-sec .profile-details, .trans-box, tbody",
+        );
+        const darkDivs = document.querySelectorAll(
+          "main, .settings-sec,  main .transactions .options ,  main .transactions .options,  main .transactions .search, .chart-div, .settings-sec .profile-details input, select, .trans-box input, select , .table-category span",
+        );
+        const whiteTxt = document.querySelectorAll(
+          ".logo, nav .right, nav .right button, .main-cont,main .transactions .options, .settings-sec, select, input, .trans-box, .trans-box input, select, .table-category span",
+        );
+
+        const blueBtns = document.querySelectorAll(
+          ".add-transaction, .settings-sec button, .trans-box button",
+        );
+
+        blueBtns.forEach((elem) => {
+          elem.style.backgroundColor = "black";
+        });
+
+        lightDivs.forEach((elem) => {
+          elem.classList.remove("light-blue");
+        });
+
+        darkDivs.forEach((elem) => {
+          elem.classList.remove("dark-blue");
+        });
+
+        whiteTxt.forEach((elem) => {
+          elem.classList.remove("white-txt");
+        });
+      };
+      // MAIN
+
+      if (loginedUser) {
+        dashboardUI();
+      } else loginUI();
+
+      // Event Listeners
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log(loginCredentials);
+
+        const usernameInp = document.querySelector(".login-div #username");
+        const passwordInp = document.querySelector(".login-div #password");
+
+        const username = usernameInp.value;
+        const password = parseInt(passwordInp.value);
+
+        let flag = 0;
+        loginCredentials =
+          JSON.parse(localStorage.getItem("loginCredentials")) || [];
+        loginCredentials.forEach((arr) => {
+          if (
+            arr.username === username &&
+            arr.password === parseInt(password)
+          ) {
+            loginedUser = arr;
+            localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+            loginForm.reset();
+            dashboardUI();
+            flag = 1;
+            return;
+          }
+        });
+
+        if (flag) return;
+        alert("Invalid username or password.");
+      });
+
+      registerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log(loginCredentials);
+
+        const usernameInp = document.querySelector(".register-div #username");
+        const passwordInp = document.querySelector(".register-div #password");
+
+        const username = usernameInp.value;
+        const password = parseInt(passwordInp.value);
+
+        let flag = 0;
+        loginCredentials =
+          JSON.parse(localStorage.getItem("loginCredentials")) || [];
+
+        loginCredentials.forEach((arr) => {
+          if (arr.username === username) {
+            alert("Username already exists! Please choose another.");
+            flag = 1;
+          }
+        });
+
+        if (flag) return;
+        const currency = "$";
+        const currencyName = "USD";
+        loginCredentials.push({
+          username,
+          fullname: username,
+          password,
+          currency,
+          currencyName,
+          colorMode: "light",
+        });
+        localStorage.setItem(
+          "loginCredentials",
+          JSON.stringify(loginCredentials),
+        );
+        alert("Registration successful! You can now log in.");
+        usernameInp.value = "";
+        passwordInp.value = "";
+
+        registerForm.reset();
+        loginUI();
+      });
+
+      dashboardBtn.addEventListener("click", () => {
+        changePage("dashboard");
+      });
+
+      settingsBtn.addEventListener("click", () => {
+        changePage("settings");
+      });
+
+      addTransaction.addEventListener("click", () => {
+        const transHeading = document.querySelector(".trans-box h2");
+        transHeading.textContent = "Add Transaction";
+
+        transactionBox.style.display = "flex";
+        document.querySelector("body").style.overflow = "hidden";
+        document.querySelector(".trans-ui #date").valueAsDate = new Date();
+      });
+
+      transactionForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const type = document.querySelector(".trans-ui  #type").value;
+        const desc = document.querySelector(".trans-ui  #desc").value;
+        const amount = document.querySelector(".trans-ui  #amount").value;
+        const date = document.querySelector(".trans-ui  #date").value;
+        const category = document.querySelector(".trans-ui  #category").value;
+
+        transactionList =
+          JSON.parse(
+            localStorage.getItem(`transactions_${loginedUser.username}`),
+          ) || [];
+
+        console.log(transactionList);
+
+        if (update) {
+          console.log("update", update);
+
+          const idx = transactionList.findIndex((elem) => {
+            console.log(elem);
+            return elem.id == update;
+          });
+          transactionList[idx] = {
+            id: parseInt(update),
+            type,
+            desc,
+            amount,
+            date,
+            category,
+          };
+          localStorage.setItem(
+            `transactions_${loginedUser.username}`,
+            JSON.stringify(transactionList),
+          );
+          console.log("index", idx);
+          update = 0;
+        } else {
+          let id = 1;
+          if (transactionList.length)
+            id = parseInt(transactionList[transactionList.length - 1].id + 1);
+
+          transactionList.push({ id, type, desc, amount, date, category });
+          localStorage.setItem(
+            `transactions_${loginedUser.username}`,
+            JSON.stringify(transactionList),
+          );
+        }
+
+        transactionBox.style.display = "none";
+        document.querySelector("body").style.overflow = "visible";
+
+        transactionForm.reset();
+        dashboardUI();
+      });
+
+      closeBtn.addEventListener("click", () => {
+        transactionBox.style.display = "none";
+        transactionForm.reset();
+        document.querySelector("body").style.overflow = "visible";
+      });
+
+      transactionTable.addEventListener("click", (e) => {
+        let elem = e.target;
+        console.log(elem);
+        const row = elem.closest("tr");
+
+        if (elem.classList.contains("edit")) {
+          console.log("Edit");
+          const row = elem.closest("tr");
+          editRow(row);
+          typeOptions.value = "all";
+        } else if (elem.classList.contains("delete")) {
+          console.log("delete");
+          const row = elem.closest("tr");
+          deleteRow(row);
+          typeOptions.value = "all";
+        }
+      });
+
+      typeOptions.addEventListener("change", (elem) => {
+        filterTransactions();
+        const choice = elem.target.value;
+        console.log(choice);
+
+        dashboardUI(choice);
+      });
+      settingsSaveBtn.addEventListener("click", () => {
+        const val = confirm("Are you sure you want to save the changes ?");
+
+        if (!val) return;
+
+        const nameInp = document.querySelector(".settings-sec #name").value;
+        const currencyInp = document.querySelector(
+          ".settings-sec #currency",
+        ).value;
+
+        loginCredentials = JSON.parse(localStorage.getItem("loginCredentials"));
+
+        const idx = loginCredentials.findIndex((elem) => {
+          return elem.username == loginedUser.username;
+        });
+
+        loginedUser.fullname = nameInp;
+        loginedUser.currencyName = currencyInp;
+
+        const userName = document.querySelector("main nav .user-name");
+        userName.innerHTML = loginedUser.fullname;
+
+        let currencyList = [
+          { currency: "$", currencyName: "USD" },
+          { currency: "€", currencyName: "EUR" },
+          { currency: "£", currencyName: "GBP" },
+          { currency: "₹", currencyName: "INR" },
+          { currency: "¥", currencyName: "JPY" },
+        ];
+
+        currencyList.forEach((elem) => {
+          if (elem.currencyName == currencyInp) {
+            loginedUser.currency = elem.currency;
+          }
+        });
+
+        loginCredentials[idx] = loginedUser;
+
+        localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+        localStorage.setItem(
+          "loginCredentials",
+          JSON.stringify(loginCredentials),
+        );
+
+        alert("Settings saved successfully!");
+        console.log(idx);
+      });
+
+      resetAllBtn.addEventListener("click", () => {
+        const flag = confirm("Are you sure you want to reset all data ?");
+        console.log("reset");
+
+        if (flag) {
+          localStorage.setItem(
+            "transactions_" + loginedUser.username,
+            JSON.stringify([]),
+          );
+          dashboardUI();
+        }
+      });
+
+      darkSwitch.addEventListener("click", () => {
+        if (loginedUser.colorMode == "light") {
+          loginedUser.colorMode = "dark";
+          localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+
+          let loginCredentials = JSON.parse(
+            localStorage.getItem("loginCredentials"),
+          );
+
+          const idx = loginCredentials.findIndex((elem) => {
+            return elem.username == loginedUser.username;
+          });
+
+          loginCredentials[idx] = loginedUser;
+
+          localStorage.setItem(
+            "loginCredentials",
+            JSON.stringify(loginCredentials),
+          );
+        } else loginedUser.colorMode = "light";
+
+        console.log(loginedUser);
+
+        localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
+        dashboardUI();
+      });
+    </script>
+  </body>
+</html>
