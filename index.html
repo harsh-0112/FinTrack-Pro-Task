@@ -1535,16 +1535,13 @@
         const passwordInp = document.querySelector(".login-div #password");
 
         const username = usernameInp.value;
-        const password = parseInt(passwordInp.value);
+        const password = String(passwordInp.value);
 
         let flag = 0;
         loginCredentials =
           JSON.parse(localStorage.getItem("loginCredentials")) || [];
         loginCredentials.forEach((arr) => {
-          if (
-            arr.username === username &&
-            arr.password === parseInt(password)
-          ) {
+          if (arr.username === username && arr.password === password) {
             loginedUser = arr;
             localStorage.setItem("loginedUser", JSON.stringify(loginedUser));
             loginForm.reset();
@@ -1573,7 +1570,7 @@
           JSON.parse(localStorage.getItem("loginCredentials")) || [];
 
         loginCredentials.forEach((arr) => {
-          if (arr.username === username) {
+          if (arr.username == username) {
             alert("Username already exists! Please choose another.");
             flag = 1;
           }
